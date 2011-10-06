@@ -1,5 +1,5 @@
 
-m ORS.old_patient_reg.models import Old_Patient	
+from ORS.old_patient_reg.models import Old_Patient	
 from django.contrib import admin
 
 
