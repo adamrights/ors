@@ -1,9 +1,8 @@
 
 from ORS.old_patient_reg.models import Old_Patient	
 from django.contrib import admin
-
-
-
+import csv
+from django.http import HttpResponse
 
 
 class Old_PatientAdmin(admin.ModelAdmin):
@@ -23,5 +22,16 @@ class Old_PatientAdmin(admin.ModelAdmin):
     save_as = True
     date_hierarchy = 'pub_date'
     save_on_top=True
+    actions =['exportdata']
+
+    def exportdata(self, request, queryset):
+        response = HttpResponse(mimetype='text/csv')
+        response['Content-Disposition'] = 'attachment; filename=orsdata.csv'
+
+        writer = csv.writer(response)
+        for row in queryset:
+            writer.writerow(queryset)
+
+        return response
     
 admin.site.register(Old_Patient, Old_PatientAdmin)

@@ -8,91 +8,14 @@ class Migration(SchemaMigration):
 
     def forwards(self, orm):
         
-        # Adding model 'Old_Patient'
-        db.create_table('old_patient_reg_old_patient', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('pub_date', self.gf('django.db.models.fields.DateField')(null=True, blank=True)),
-            ('order_taken_by', self.gf('django.db.models.fields.CharField')(max_length=50, blank=True)),
-            ('store', self.gf('django.db.models.fields.CharField')(max_length=200, blank=True)),
-            ('patient_first_name', self.gf('django.db.models.fields.CharField')(max_length=50)),
-            ('patient_last_name', self.gf('django.db.models.fields.CharField')(max_length=50)),
-            ('address1', self.gf('django.db.models.fields.CharField')(max_length=300, blank=True)),
-            ('address2', self.gf('django.db.models.fields.CharField')(max_length=300, blank=True)),
-            ('city', self.gf('django.db.models.fields.CharField')(max_length=100, blank=True)),
-            ('state', self.gf('django.db.models.fields.CharField')(max_length=40, blank=True)),
-            ('zip_code', self.gf('django.db.models.fields.CharField')(max_length=30, blank=True)),
-            ('home_phone', self.gf('django.db.models.fields.CharField')(max_length=30, blank=True)),
-            ('back_up_phone', self.gf('django.db.models.fields.CharField')(max_length=30, blank=True)),
-            ('sex', self.gf('django.db.models.fields.CharField')(max_length=20, blank=True)),
-            ('relationship', self.gf('django.db.models.fields.CharField')(max_length=100, blank=True)),
-            ('primary_insurance', self.gf('django.db.models.fields.CharField')(max_length=200, blank=True)),
-            ('claim_id', self.gf('django.db.models.fields.CharField')(max_length=200, blank=True)),
-            ('insurance_address', self.gf('django.db.models.fields.CharField')(max_length=300, blank=True)),
-            ('insurance_phone', self.gf('django.db.models.fields.CharField')(max_length=200, blank=True)),
-            ('secondary_insurance', self.gf('django.db.models.fields.CharField')(max_length=200, blank=True)),
-            ('secondary_insurance_claim_id', self.gf('django.db.models.fields.CharField')(max_length=200, blank=True)),
-            ('secondary_insurance_address', self.gf('django.db.models.fields.CharField')(max_length=200, blank=True)),
-            ('secondary_insurance_phone', self.gf('django.db.models.fields.CharField')(max_length=200, blank=True)),
-            ('referal_name', self.gf('django.db.models.fields.CharField')(max_length=200, blank=True)),
-            ('resp_party_name', self.gf('django.db.models.fields.CharField')(max_length=200, blank=True)),
-            ('md_name', self.gf('django.db.models.fields.CharField')(max_length=200, blank=True)),
-            ('md_id', self.gf('django.db.models.fields.CharField')(max_length=200, blank=True)),
-            ('md_address', self.gf('django.db.models.fields.CharField')(max_length=300, blank=True)),
-            ('md_phone', self.gf('django.db.models.fields.CharField')(max_length=200, blank=True)),
-            ('hips', self.gf('django.db.models.fields.CharField')(max_length=200, blank=True)),
-            ('trunk', self.gf('django.db.models.fields.CharField')(max_length=200, blank=True)),
-            ('shoulder', self.gf('django.db.models.fields.CharField')(max_length=200, blank=True)),
-            ('head_width', self.gf('django.db.models.fields.CharField')(max_length=200, blank=True)),
-            ('foot_length', self.gf('django.db.models.fields.CharField')(max_length=200, blank=True)),
-            ('weight', self.gf('django.db.models.fields.CharField')(max_length=200, blank=True)),
-            ('height', self.gf('django.db.models.fields.CharField')(max_length=200, blank=True)),
-            ('seat_elbow', self.gf('django.db.models.fields.CharField')(max_length=200, blank=True)),
-            ('seat_lateral_top', self.gf('django.db.models.fields.CharField')(max_length=200, blank=True)),
-            ('seat_shoulder_top', self.gf('django.db.models.fields.CharField')(max_length=200, blank=True)),
-            ('seat_head_top', self.gf('django.db.models.fields.CharField')(max_length=200, blank=True)),
-            ('back_knee', self.gf('django.db.models.fields.CharField')(max_length=200, blank=True)),
-            ('knee_heel', self.gf('django.db.models.fields.CharField')(max_length=200, blank=True)),
-            ('axilla_floor', self.gf('django.db.models.fields.CharField')(max_length=200, blank=True)),
-            ('elbow_floor', self.gf('django.db.models.fields.CharField')(max_length=200, blank=True)),
-            ('wrist_floor', self.gf('django.db.models.fields.CharField')(max_length=200, blank=True)),
-            ('buttock_crease_floor', self.gf('django.db.models.fields.CharField')(max_length=200, blank=True)),
-            ('comments', self.gf('django.db.models.fields.TextField')(blank=True)),
-            ('orders', self.gf('django.db.models.fields.TextField')(blank=True)),
-            ('dob', self.gf('django.db.models.fields.DateField')(null=True, blank=True)),
-            ('codes_prices', self.gf('django.db.models.fields.TextField')(blank=True)),
-            ('faxed_reg_date', self.gf('django.db.models.fields.DateField')(null=True, blank=True)),
-            ('faxed_reg_status', self.gf('django.db.models.fields.NullBooleanField')(default=False, null=True, blank=True)),
-            ('faxed_script', self.gf('django.db.models.fields.NullBooleanField')(default=False, null=True, blank=True)),
-            ('faxed_script_date', self.gf('django.db.models.fields.DateField')(null=True, blank=True)),
-            ('faxed_justification', self.gf('django.db.models.fields.NullBooleanField')(null=True, blank=True)),
-            ('faxed_justification_date', self.gf('django.db.models.fields.DateField')(null=True, blank=True)),
-            ('faxed_MD_notes', self.gf('django.db.models.fields.NullBooleanField')(null=True, blank=True)),
-            ('faxed_price_quotes', self.gf('django.db.models.fields.NullBooleanField')(null=True, blank=True)),
-            ('faxed_MD_notes_date', self.gf('django.db.models.fields.DateField')(null=True, blank=True)),
-            ('faxed_price_quotes_date', self.gf('django.db.models.fields.DateField')(null=True, blank=True)),
-            ('quickbooks_estimate', self.gf('django.db.models.fields.NullBooleanField')(default=False, null=True, blank=True)),
-            ('quickbooks_estimate_date', self.gf('django.db.models.fields.DateField')(null=True, blank=True)),
-            ('quickbooks_eval_estimate', self.gf('django.db.models.fields.NullBooleanField')(null=True, blank=True)),
-            ('quickbooks_eval_estimate_date', self.gf('django.db.models.fields.DateField')(null=True, blank=True)),
-            ('item_ordered', self.gf('django.db.models.fields.NullBooleanField')(default=False, null=True, blank=True)),
-            ('item_ordered_date', self.gf('django.db.models.fields.DateField')(null=True, blank=True)),
-            ('item_set_up', self.gf('django.db.models.fields.NullBooleanField')(default=False, null=True, blank=True)),
-            ('item_set_up_date', self.gf('django.db.models.fields.DateField')(null=True, blank=True)),
-            ('billed', self.gf('django.db.models.fields.NullBooleanField')(default=False, null=True, blank=True)),
-            ('billed_date', self.gf('django.db.models.fields.DateField')(null=True, blank=True)),
-            ('paid', self.gf('django.db.models.fields.NullBooleanField')(default=False, null=True, blank=True)),
-            ('paid_date', self.gf('django.db.models.fields.DateField')(null=True, blank=True)),
-            ('item_approved', self.gf('django.db.models.fields.NullBooleanField')(default=False, null=True, blank=True)),
-            ('item_approved_date', self.gf('django.db.models.fields.DateField')(null=True, blank=True)),
-            ('status_notes', self.gf('django.db.models.fields.TextField')(blank=True)),
-        ))
-        db.send_create_signal('old_patient_reg', ['Old_Patient'])
+        # Deleting field 'Old_Patient.pending_date'
+        db.delete_column('old_patient_reg_old_patient', 'pending_date')
 
 
     def backwards(self, orm):
         
-        # Deleting model 'Old_Patient'
-        db.delete_table('old_patient_reg_old_patient')
+        # Adding field 'Old_Patient.pending_date'
+        db.add_column('old_patient_reg_old_patient', 'pending_date', self.gf('django.db.models.fields.DateField')(null=True, blank=True), keep_default=False)
 
 
     models = {
@@ -167,7 +90,7 @@ class Migration(SchemaMigration):
             'sex': ('django.db.models.fields.CharField', [], {'max_length': '20', 'blank': 'True'}),
             'shoulder': ('django.db.models.fields.CharField', [], {'max_length': '200', 'blank': 'True'}),
             'state': ('django.db.models.fields.CharField', [], {'max_length': '40', 'blank': 'True'}),
-            'status_notes': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
+            'status_notes': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             'store': ('django.db.models.fields.CharField', [], {'max_length': '200', 'blank': 'True'}),
             'trunk': ('django.db.models.fields.CharField', [], {'max_length': '200', 'blank': 'True'}),
             'weight': ('django.db.models.fields.CharField', [], {'max_length': '200', 'blank': 'True'}),

@@ -1,6 +1,7 @@
 from django.db import models
 import datetime
 
+
 # Data models here to build database.
 
 class Old_Patient(models.Model):
@@ -19,9 +20,9 @@ class Old_Patient(models.Model):
     address2                    = models.CharField(max_length=300,blank=True,)
     city                        = models.CharField(max_length=100,blank=True,)
     state                       = models.CharField(max_length=40,blank=True,)
-    zip_code                    = models.CharField(max_length=30,blank=True,)
-    home_phone                  = models.CharField(max_length=30,blank=True,)
-    back_up_phone               = models.CharField(max_length=30,blank=True,)
+    zip_code                    = models.CharField(max_length=50,blank=True,)
+    home_phone                  = models.CharField(max_length=50,blank=True,)
+    back_up_phone               = models.CharField(max_length=90,blank=True,)
     sex                         = models.CharField(max_length=20,blank=True,)
     relationship                = models.CharField(max_length=100,blank=True,)
     primary_insurance           = models.CharField(max_length=200,blank=True,)
@@ -84,7 +85,10 @@ class Old_Patient(models.Model):
     paid_date                   = models.DateField('Date:',blank=True,null=True)
     item_approved               = models.NullBooleanField(default=False,blank=True,verbose_name='Approved')
     item_approved_date          = models.DateField('Date:',blank=True,null=True)
-    status_notes                = models.TextField(blank=True)
+    status_notes                = models.TextField(blank=True,null=True)
+#   pending_date                = models.DateField('Date:',blank=True,null=True)
+
+
 
     def __unicode__(self):
         return u' %s %s %s' % (self.pub_date, self.patient_first_name, self.patient_last_name)
