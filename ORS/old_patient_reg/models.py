@@ -86,7 +86,7 @@ class Old_Patient(models.Model):
     item_approved               = models.NullBooleanField(default=False,blank=True,verbose_name='Approved')
     item_approved_date          = models.DateField('Date:',blank=True,null=True)
     status_notes                = models.TextField(blank=True,null=True)
-#   pending_date                = models.DateField('Date:',blank=True,null=True)
+    pending_date                = models.DateField('Follow-Up Next',blank=True,null=True)
 
 
 
