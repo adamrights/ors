@@ -1,9 +1,8 @@
-
 from ORS.old_patient_reg.models import Old_Patient	
 from django.contrib import admin
 import csv
 from django.http import HttpResponse
-
+from django import forms
 
 class Old_PatientAdmin(admin.ModelAdmin):
     fieldsets = [
@@ -22,16 +21,48 @@ class Old_PatientAdmin(admin.ModelAdmin):
     save_as = True
     date_hierarchy = 'pub_date'
     save_on_top=True
-    actions =['exportdata']
+    actions =['action_yes_faxreg','action_yes_faxrx','export_as_csv']
 
-    def exportdata(self, request, queryset):
+    def action_yes_faxreg(self, request, queryset):
+        rows_updated=queryset.update(faxed_reg_status='True')
+        if rows_updated==1:
+            message_bit = "1 patient was"
+        else:
+            message_bit = "%s patients were" % rows_updated
+        self.message_user(request, "%s successfully updated." % message_bit) 
+    action_yes_faxreg.short_description = "Set Faxed Registration to Yes in Selected Patients" 
+
+    def action_yes_faxrx(self, request, queryset):
+        queryset.update(faxed_script='True')
+    action_yes_faxrx.short_description       = "Set Faxed RX to Yes in Selected Patients"
+
+
+
+    def export_as_csv(self, request, queryset):
+   # Generic csv export admin action.
+        if not request.user.is_staff:
+            raise PermissionDenied
+        opts = self.model._meta
         response = HttpResponse(mimetype='text/csv')
-        response['Content-Disposition'] = 'attachment; filename=orsdata.csv'
-
+        response['Content-Disposition'] = 'attachment; filename=%s.csv' % unicode(opts).replace('.', '_')
         writer = csv.writer(response)
-        for row in queryset:
-            writer.writerow(queryset)
-
+        field_names = [field.name for field in opts.fields]
+    # Write a first row with header information
+        writer.writerow(field_names)
+    # Write data rows
+        for obj in queryset:
+            writer.writerow([getattr(obj, field) for field in field_names])
         return response
-    
+
+
+    export_as_csv.short_description = "Export selected objects as csv file"
+
+    def formfield_for_dbfield(self, db_field, **kwargs):
+        formfield = super(Old_PatientAdmin, self).formfield_for_dbfield(db_field, **kwargs)
+        if db_field.name == 'md_address':
+            formfield.widget = forms.Textarea(attrs=formfield.widget.attrs)
+        return formfield
+
 admin.site.register(Old_Patient, Old_PatientAdmin)
+
+

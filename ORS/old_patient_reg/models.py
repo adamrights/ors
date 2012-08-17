@@ -37,7 +37,7 @@ class Old_Patient(models.Model):
     resp_party_name             = models.CharField(max_length=200,blank=True,)
     md_name                     = models.CharField(max_length=200,blank=True,)
     md_id                       = models.CharField(max_length=200,blank=True,)
-    md_address                  = models.CharField(max_length=300,blank=True,)
+    md_address                  = models.CharField(max_length=1000,blank=True,)
     md_phone                    = models.CharField(max_length=200,blank=True,)
     hips                        = models.CharField(max_length=200,blank=True,)
     trunk                       = models.CharField(max_length=200,blank=True,)
