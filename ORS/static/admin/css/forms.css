@@ -222,6 +222,10 @@ body.popup .submit-row {
     width: 20em;
 }
 
+.vTextField#id_md_id {
+    width: 10em;
+  }
+
 .vIntegerField {
     width: 5em;
 }
