@@ -118,6 +118,7 @@ INSTALLED_APPS = (
     'admin_tools.theming',
     'admin_tools.menu',
     'admin_tools.dashboard',
+    'django.contrib.contenttypes',
     'django.contrib.auth',
     'django.contrib.sites',
     'django.contrib.messages',
