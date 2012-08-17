@@ -2,7 +2,7 @@ from ORS.old_patient_reg.models import Old_Patient
 from django.contrib import admin
 import csv
 from django.http import HttpResponse
-
+from django import forms
 
 class Old_PatientAdmin(admin.ModelAdmin):
     fieldsets = [
@@ -56,6 +56,12 @@ class Old_PatientAdmin(admin.ModelAdmin):
 
 
     export_as_csv.short_description = "Export selected objects as csv file"
+
+    def formfield_for_dbfield(self, db_field, **kwargs):
+        formfield = super(Old_PatientAdmin, self).formfield_for_dbfield(db_field, **kwargs)
+        if db_field.name == 'md_address':
+            formfield.widget = forms.Textarea(attrs=formfield.widget.attrs)
+        return formfield
 
 admin.site.register(Old_Patient, Old_PatientAdmin)
 
