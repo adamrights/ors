@@ -9,6 +9,11 @@
 ###############
 logs/
 
+build/
+bin/
+include/
+
+
 ORS/settings.py
 
 .DS_Store?
