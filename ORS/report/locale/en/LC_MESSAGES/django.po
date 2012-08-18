@@ -1,7 +1,7 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+#ENGLISH TRANSLATION OF REPORT CODE 
+# Copyright (C) YEAR THE PACKAGE
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# FIRST AUTHOR <adamrights@gmail.com>, 2012.
 #
 #, fuzzy
 msgid ""
@@ -19,23 +19,23 @@ msgstr ""
 
 #: actions.py:35
 msgid "Relatorio"
-msgstr ""
+msgstr "Report"
 
 #: actions.py:56
 msgid "Imprimir relatório detalhado"
-msgstr ""
+msgstr "Print detailed report"
 
 #: admin.py:35 admin.py:91 models.py:19
 msgid "Campos"
-msgstr ""
+msgstr "Fields"
 
 #: admin.py:35
 msgid "Selecione os campos desse tipo de relatório."
-msgstr ""
+msgstr "Select the fields of this type of report"
 
 #: admin.py:47 admin.py:76 admin.py:88 models.py:12
 msgid "Tipo de relatório"
-msgstr ""
+msgstr "Type of record"
 
 #: admin.py:48 admin.py:77 admin.py:89 models.py:17
 msgid "Permissão"
@@ -51,19 +51,19 @@ msgstr "Dashboard"
 
 #: menu.py:23
 msgid "Favoritos"
-msgstr ""
+msgstr "Favorites"
 
 #: menu.py:25
 msgid "Applications"
-msgstr ""
+msgstr "Applications"
 
 #: menu.py:29
 msgid "Administration"
-msgstr ""
+msgstr "Adminstration"
 
 #: menu.py:47
 msgid "Relatórios"
-msgstr ""
+msgstr "Records"
 
 #: models.py:13
 msgid "Tipos de relatórios"
@@ -75,99 +75,99 @@ msgstr "Title"
 
 #: models.py:15
 msgid "Insira o título do tipo de relatório."
-msgstr ""
+msgstr "Enter the title for this type of report"
 
 #: models.py:16
 msgid "Cabeçalho"
-msgstr ""
+msgstr "Header"
 
 #: models.py:16
 msgid "Insira o cabeçalho do tipo de relatório."
-msgstr ""
+msgstr "Enter a title for this type of report"
 
 #: models.py:17
 msgid ""
 "Selecione os grupos que tem permissão para imprimir esse tipo de relatório."
-msgstr ""
+msgstr "Select the groups that have permission to print this type of report"
 
 #: models.py:18
 msgid "Selecione o modelo do tipo de relatório."
-msgstr ""
+msgstr "Select the model for the report"
 
 #: models.py:19
 msgid "Selecione os campos do tipo de relatório."
-msgstr ""
+msgstr "Select the fields"
 
 #: views.py:48
 msgid "Sim"
-msgstr ""
+msgstr "Yes"
 
 #: views.py:48
 msgid "Não"
-msgstr ""
+msgstr "No"
 
 #: views.py:48
 msgid "Todos"
-msgstr ""
+msgstr "All"
 
 #: views.py:63
 msgid "Qualquer data"
-msgstr ""
+msgstr "Any Time"
 
 #: views.py:63
 msgid "Hoje"
-msgstr ""
+msgstr "Today"
 
 #: views.py:63
 msgid "Este mês"
-msgstr ""
+msgstr "This Month"
 
 #: views.py:63
 msgid "Este ano"
-msgstr ""
+msgstr "This Year"
 
 #: templates/report/change_form.html:18 templates/report/report.html:18
 msgid "Home"
-msgstr ""
+msgstr "Home"
 
 #: templates/report/change_form.html:21
 msgid "Add"
-msgstr ""
+msgstr "Add"
 
 #: templates/report/change_form.html:28
 msgid "History"
-msgstr ""
+msgstr "History"
 
 #: templates/report/change_form.html:29
 msgid "View on site"
-msgstr ""
+msgstr "View on site"
 
 #: templates/report/change_form.html:39
 msgid "Please correct the error below."
 msgid_plural "Please correct the errors below."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Please correct the error below."
+msgstr[1] "Please correct the error below"
 
 #: templates/report/change_form.html:58
 msgid "Salvar e continuar"
-msgstr ""
+msgstr "Save and Continue"
 
 #: templates/report/report.html:19
 msgid "Report"
-msgstr ""
+msgstr "Report"
 
 #: templates/report/report.html:30
 msgid "Filtros"
-msgstr ""
+msgstr "Filters"
 
 #: templates/report/report.html:35
 msgid "Selecione os filtros que deseja aplicar para esse relatório!"
-msgstr ""
+msgstr "Select Filters to Apply to Report"
 
 #: templates/report/report.html:54
 msgid "Não há filtros para esse relatório!"
-msgstr ""
+msgstr "No Filters for Report"
 
 #: templates/report/report.html:61
 msgid "Imprimir"
-msgstr ""
+msgstr "Print"
