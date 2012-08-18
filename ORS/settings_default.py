@@ -23,7 +23,12 @@ TIME_ZONE = 'America/Chicago'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en-us'
+
+LANGUAGE_CODE = 'en-US'
+LANGUAGES = [
+        ('en', 'English'),
+        ]
+
 
 SITE_ID = 1
 
@@ -37,7 +42,7 @@ USE_L10N = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = '/home/adam/.virtualenvs/ors/ORS/media/'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -48,7 +53,7 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = '/home/adam/.virtualenvs/ors/ORS/static'
+STATIC_ROOT = '/home/adam/.virtualenvs/ors/ORS/static/'
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -63,15 +68,6 @@ STATICFILES_DIRS = (
 
 
 
-TEMPLATE_CONTEXT_PROCESSORS = (
-    # default template context processors
-    'django.core.context_processors.auth',
-    'django.core.context_processors.debug',
-    'django.core.context_processors.i18n',
-    'django.core.context_processors.media',
-# required by django-admin-tools
-    'django.core.context_processors.request',
-)
 
 # List of finder classes that know how to find static files in
 # various locations.
@@ -88,10 +84,13 @@ SECRET_KEY = '(^f8623v#tq%si#x3igvv7r7uwft18ocgw0ppne-42d0+yc@f4'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-    'django.template.loaders.eggs.Loader',
+#    'django.template.loaders.eggs.Loader',
 )
 
+
+
 MIDDLEWARE_CLASSES = (
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -112,9 +111,19 @@ TEMPLATE_DIRS = (
 
 
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    # default template context processors
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+# required by django-admin-tools
+    'django.core.context_processors.request',
+)
 
 
 INSTALLED_APPS = (
+    'report',
+    'admin_tools',
     'admin_tools.theming',
     'admin_tools.menu',
     'admin_tools.dashboard',

@@ -1,9 +1,13 @@
 Cheetah==2.4.4
+Markdown==2.2.0
 South==0.7.3
 distribute==0.6.19
+django-admin-tools==0.4.1
 django-debug-toolbar==0.8.5
 html5lib==0.90
 modwsgideploy==0.4.20dev
+psycopg2==2.4.2
 python-memcached==1.47
 wsgiref==0.1.2
 yolk==0.4.1
+

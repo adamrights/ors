@@ -3,6 +3,8 @@ from django.contrib import admin
 import csv
 from django.http import HttpResponse
 from django import forms
+from ORS.report.actions import report_generic_detailed
+
 
 class Old_PatientAdmin(admin.ModelAdmin):
     fieldsets = [
@@ -22,6 +24,18 @@ class Old_PatientAdmin(admin.ModelAdmin):
     date_hierarchy = 'pub_date'
     save_on_top=True
     actions =['action_yes_faxreg','action_yes_faxrx','export_as_csv']
+    actions += [report_generic_detailed, ]
+
+    #setting for the report app
+    list_report = ('patient_first_name','patient_last_name','dob','comments','orders','codes_prices')
+
+
+    fieldsets_report = [
+                (u'Custom Patient Info', {'fields' :   ('patient_first_name','patient_last_name','dob','orders',),},),
+                (u'Insurance Information', {'fields' : ('primary_insurance','claim_id','insurance_address','insurance_phone','secondary_insurance','secondary_insurance_claim_id',),},),
+                (u'Referal & Doctor Information', {'fields' : ('referal_name','resp_party_name','md_name','md_id','md_address','md_phone',),},),
+                ]
+    report_header_detailed = "<h1>Test of header for a detailed report</h1>"
 
     def action_yes_faxreg(self, request, queryset):
         rows_updated=queryset.update(faxed_reg_status='True')
